@@ -2,18 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="/js/script.js" defer></script>
-    <script src="/js/api.js" defer></script>
-    <link rel="stylesheet" href="css/style.scss">
+    <script src="js/script.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
     <header>
-
         <nav>
             <p>EVENTS IN PRAGUE</p>
             <a href="">Home</a>
@@ -23,16 +22,27 @@
     </header>
     <main>
         <section class="feature">
-            <img src="" alt="">
+            <img src="" alt="" />
             <h1>Event name</h1>
             <p>Event description</p>
-            <button>Register</button>
-
+            <button class="btn1">Register</button>
         </section>
         <section class="box">
             <h3>Event name</h3>
-            <button>Register</button>
+            <button class="btn2">Register</button>
         </section>
+        <div class="contact">
+            <h2>Register</h2>
+            <label for="name"><input class="contact__info" type="text" id="name" placeholder="Name" /></label>
+            <label for="name"><input class="contact__info" type="text" id="lname" placeholder="Last Name"></label>
+            <label for="email"><input class="contact__info" type="text" id="email" placeholder="Email" /></label>
+            <label for="phone"><input class="contact__info" type="text" id="phone" placeholder="Phone" /></label>
+            <label for="checkbox">Are You 18?</label><input type="checkbox">
+
+            <button class="submit" type="submit">Submit</button>
+        </div>
+
+        </form>
     </main>
 </body>
 

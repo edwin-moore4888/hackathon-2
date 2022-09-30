@@ -21,6 +21,9 @@ export const loadData = async () => {
 
     const listElm = document.querySelector('h1');
     listElm.textContent += api[0].name
+    const about = document.querySelector('.about');
+    about.textContent += api[0].description
+
     //     const listElm = document.querySelector('.board__table tbody');
     //     data.forEach((row) => {
     //         listElm.innerHTML += `
