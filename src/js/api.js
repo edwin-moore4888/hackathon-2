@@ -20,7 +20,7 @@ export const loadData = async () => {
 
 
     const listElm = document.querySelector('h1');
-    listElm.innerHTML += `<p>${api[0].name}</p>`
+    listElm.textContent += api[0].name
     //     const listElm = document.querySelector('.board__table tbody');
     //     data.forEach((row) => {
     //         listElm.innerHTML += `
