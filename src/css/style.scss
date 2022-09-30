@@ -1,19 +1,55 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
   width: 100%;
   height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: "montserrat alternates";
 }
 
 main {
-  width: 100%;
+  width: 80%;
   height: 100vh;
+  margin: auto;
+
+  .feature {
+    width: 100%;
+    height: 40%;
+    margin: 7% 5%;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 75%;
+      border-radius: 10%;
+    }
+
+    div {
+      margin: 0 2%;
+
+      p {
+        margin-top: 2%;
+      }
+
+      .btn1 {
+        float: right;
+        margin-top: 2%;
+      }
+    }
+  }
 }
 
 .modal {
   display: none;
+  justify-content: center;
+  align-items: center;
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
@@ -72,4 +108,38 @@ main {
 .submit {
   width: 170px;
   color: grey;
+}
+
+nav {
+  height: 70px;
+  width: 100%;
+  background-color: rgb(111, 107, 107);
+
+  img {
+    height: 70px;
+  }
+
+  ul {
+    float: right;
+    margin-right: 20px;
+
+    li {
+      display: inline-block;
+      line-height: 70px;
+      margin: 0 7px;
+
+      a {
+        color: white;
+        font-size: 20px;
+        padding: 6px 13px;
+        border-radius: 3px;
+      }
+
+      a.active,
+      a:hover {
+        background: #1B9FFF;
+        transition: 0.3s;
+      }
+    }
+  }
 }

@@ -1,23 +1,11 @@
-// let button = document.querySelector('.button')
-// button.addEventListener("click", () => {
-
-
 export const loadData = async () => {
+    console.log('loading')
     const response = await fetch('https://test-api.codingbootcamp.cz/api/fb026915/events');
     const data = await response.json();
 
 
 
-    console.log("hello");
-    // const data = api
-
-
-    // const artItemElem = document.querySelector('div');
-    // artItemElem.innerHTML = '';
-    console.log(data[0])
-
-
-
+    // console.log("hello");
 
     const listElm = document.querySelector('h1');
 
@@ -26,11 +14,9 @@ export const loadData = async () => {
     const about = document.querySelector('.about');
     about.textContent = data[0].description
     const img = document.querySelector('.feature');
-    img.innerHTML += ` <div><img src="${data[0].image_url}" alt="image" style= "width: 450px; height: auto;"></div>`
-
-
-
-
+    const imageDiv = document.createElement('div')
+    imageDiv.innerHTML = `<img src="${data[0].image_url}" alt="image" style= "width: 450px; height: auto;">`
+    img.appendChild(imageDiv)
 
     const otherEvents = document.querySelector('.box');
 
@@ -38,53 +24,52 @@ export const loadData = async () => {
         const eventCard = document.createElement('div')
         eventCard.innerHTML = `
             <h3>${el.name}</h3>
-            <button class="btn${el.id}">Register</button>
+            <button class="button${el.id}">Register</button>
         `
+
         eventCard.querySelector('button').addEventListener('click', () => {
             console.log('CLICK from ' + el.id)
-
+            modal.style.display = 'flex'
         })
+
         otherEvents.appendChild(eventCard)
     });
 }
 
-
-
-
-
-
-
-
-
-// let button = document.querySelector('.button')
-// button.addEventListener("click", () => {
-//     const facts = document.querySelector('.facts')
-//     facts.innerHTML += ''
-
-// let name = document.getElementById("name")
-// let lname = document.getElementById("lname")
-// let email = document.getElementById("email")
-// let phone = document.getElementById("phone")
-// console.log(name.value)
-// console.log(lname.value)
-
-
-function exportToJSON() {
+export const postData = async () => {
     const nameinput = document.getElementById("name").value;
     const lastNameinput = document.getElementById("lname").value;
     const emailinput = document.getElementById("email").value;
     const phoneinput = document.getElementById("phone").value;
 
     const data = {
-        Registration:
-        {
-            Name: nameinput,
-            LastName: lastNameinput,
-            Email: emailinput,
-            Phone: phoneinput
-        }
+        // name: nameinput,
+        // lastName: lastNameinput,
+        // email: emailinput,
+        // phone: phoneinput
+        "name": nameinput,
+        "date": new Date(),
+        "description": emailinput,
+        "image_url": phoneinput
     };
     console.log(data)
-}
 
-exportToJSON()
+    const res = await fetch('https://test-api.codingbootcamp.cz/api/fb026915/events', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+        },
+
+    })
+    const statusReport = await res.json()
+    // console.log(statusReport)src / js / api.js
+}
+postData()
+
+let submit = document.querySelector("#submit")
+submit.addEventListener('click', async () => {
+
+    const response = await postData()
+    console.log(response)
+})
